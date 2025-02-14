@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Karen - Feliz 14 de Febrero</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7ede2;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 5s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(-45deg) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(-45deg) scale(1.5); opacity: 0; }
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #f5e6ca;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 28px;
+            color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+            border: 3px solid #d17b88;
+            animation: heartbeat 2s infinite ease-in-out; 
+        }
+
+        .text-box {
+            background: #fae1dd;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.5;
+            max-width: 400px;
+        }
+
+        .left {
+            flex-direction: row;
+        }
+
+        .right {
+            flex-direction: row-reverse;
+        }
+
+        .final-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #fdd8c9;
+            border-radius: 10px;
+        }
+
+        .final-section img {
+            max-width: 300px;
+            border-radius: 10px;
+            border: 3px solid #d17b88;
+            display: block;
+            margin: 0 auto;
+            animation: heartbeat 2s infinite ease-in-out;
+        }
+
+        .final-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #b22222;
+            margin-top: 15px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background" id="background"></div>
+
+    <script>
+        function createHearts() {
+            let bg = document.getElementById('background');
+            for (let i = 0; i < 10; i++) { 
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.width = heart.style.height = Math.random() * 20 + 10 + 'px'; 
+                bg.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+
+        setInterval(createHearts, 500);
+    </script>
+
+    <div class="container">
+        <div class="title">MI QUERIDA KAREN</div>
+
+        <div class="section left">
+            <div class="text-box">
+                ✨ Hoy es un día muy especial pues cumplimos un mes juntos. Estoy muy feliz de estar contigo y te amo muchísimo. A pesar de la distancia, deseo abrazarte con todas mis fuerzas. ✨
+            </div>
+            <div class="image-box">
+                <img src="imagenes/imagen1.jpg" alt="TE AMO EN CASO DE QUE NO CARGUE LA IMAGEN!!!">
+            </div>
+        </div>
+
+        <div class="section right">
+            <div class="text-box">
+                ⭐ Tus mensajes me hacen muy feliz. Cada instante reviso mi celular para leer tus palabras. Te amo con todo mi corazón y gracias por estar conmigo siempre. ⭐
+            </div>
+            <div class="image-box">
+                <img src="imagenes/imagen2.jpg" alt="Pareja feliz en el campo">
+            </div>
+        </div>
+
+        <div class="section left">
+            <div class="text-box">
+                🌿 Nunca dudes de mi amor por ti. Eres lo mejor que me ha pasado y siempre estaré a tu lado, sin importar qué pase. Te amo infinitamente. 🌿
+            </div>
+            <div class="image-box">
+                <img src="imagenes/imagen3.jpg" alt="Manos entrelazadas al atardecer">
+            </div>
+        </div>
+
+        <div class="final-section">
+            <img src="imagenes/imagen4.jpg" alt="Última imagen especial">
+            <div class="final-message">
+                💖 Gracias por estar siempre a mi lado, por apoyarme en todo y por darme tu amor incondicional.  
+                Eres lo mejor que me ha pasado, y te amo con todo mi corazón. 💖
+            </div>
+        </div>
+    </div>
+</body>
+</html>
